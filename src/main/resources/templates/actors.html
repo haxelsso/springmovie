@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Actors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+      <tr>
+	<th>ID</th>
+        <th>FORENAME</th>
+	<th>LASTNAME</th>
+      </tr>
+      <tr th:each="actor : ${listofactors}">
+        <td th:text="${actor.actorid}">no data</td>
+	<td th:text="${actor.actorforename}">no data</td>
+	<td th:text="${actor.actorlastname}">no data</td>
+      </tr>
+    </table>
+</body>
+</html>

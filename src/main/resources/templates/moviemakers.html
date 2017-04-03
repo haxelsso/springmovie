@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of MovieMakers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+      <tr>
+	<th>ID</th>
+        <th>FORENAME</th>
+	<th>LASTNAME</th>
+      </tr>
+      <tr th:each="moviemaker : ${listofmoviemakers}">
+        <td th:text="${moviemaker.makerid}">no data</td>
+	<td th:text="${moviemaker.makerforename}">no data</td>
+	<td th:text="${moviemaker.makerlastname}">no data</td>
+      </tr>
+    </table>
+
+</body>
+</html>

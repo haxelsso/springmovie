@@ -7,14 +7,12 @@
 <body>
     <table>
       <tr>
-	<th>ID</th>
-        <th>FORENAME</th>
+        <th>FIRSTNAME</th>
 	<th>LASTNAME</th>
       </tr>
       <tr th:each="actor : ${listofactors}">
-        <td th:text="${actor.actorid}">no data</td>
-	<td th:text="${actor.actorforename}">no data</td>
-	<td th:text="${actor.actorlastname}">no data</td>
+	<td th:text="${actor.firstName}">no data</td>
+	<td th:text="${actor.lastName}">no data</td>
       </tr>
     </table>
 </body>

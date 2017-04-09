@@ -7,19 +7,16 @@
 <body>
     <table>
       <tr>
-	<th>ID</th>
         <th>NAME</th>
 	<th>YEAR</th>
       </tr>
       <tr th:each="movie : ${listofmovies}">
-        <td th:text="${movie.movieId}">no data</td>
 	<td th:text="${movie.name}">no data</td>
 	<td th:text="${movie.year}">no data</td>
       </tr>
     </table>
 	<h1>Input Form</h1>
     <form action="/movies" method="post">
-    	<p>Id: <input type="text" name="id" /></p>
         <p>Name: <input type="text" name="name" /></p>
 	<p>Year: <input type="text" name="year" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>

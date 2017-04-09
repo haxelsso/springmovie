@@ -7,14 +7,12 @@
 <body>
     <table>
       <tr>
-	<th>ID</th>
-        <th>FORENAME</th>
+        <th>FIRSTNAME</th>
 	<th>LASTNAME</th>
       </tr>
       <tr th:each="moviemaker : ${listofmoviemakers}">
-        <td th:text="${moviemaker.makerid}">no data</td>
-	<td th:text="${moviemaker.makerforename}">no data</td>
-	<td th:text="${moviemaker.makerlastname}">no data</td>
+	<td th:text="${moviemaker.firstName}">no data</td>
+	<td th:text="${moviemaker.lastName}">no data</td>
       </tr>
     </table>
 

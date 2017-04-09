@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import com.axelsson.entities.*;
 import com.axelsson.repositories.*;
 
@@ -38,12 +40,25 @@ public class MoviesController {
 		return "movies";
 	}
 
+	@GetMapping("/api/v1/movies/{id}")
+	public @ResponseBody String showMovieById(@PathVariable("id") String movieId) {
+
+		Movie movie = this.getMovieByIdFromDb(movieId);
+
+		if (movie == null) {
+			return "Movie not found";
+		} else {		
+			return movie.toString();
+		}
+	}
+
 	@GetMapping("/api/v1/movies")
 	public @ResponseBody Iterable index_json() {
 
 		// JSON processing
 		return this.getMoviesFromDb();
 	}
+	
 
 	@PostMapping("/movies")
 	public String moviesSubmit(@RequestParam(value="id", required=false, defaultValue="") String id,
@@ -77,5 +92,12 @@ public class MoviesController {
 	private Iterable getMoviesFromDb() {
 		
 		return repository.findAll();
+	}
+
+	private Movie getMovieByIdFromDb(String movieId) {
+
+		long movieIdChanged = Long.parseLong(movieId);
+
+		return repository.findOne(movieIdChanged);
 	}
 }

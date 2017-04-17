@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    image: haxelsso/movie:latest
+    ports:
+    - "8080:8080"
+    links:
+    - app-db
+  app-db:
+    image: postgres:latest
+    container_name: app-db
+    expose:
+    - "5432"
+    environment:
+    - POSTGRES_PASSWORD=postgres
